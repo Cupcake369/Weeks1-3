@@ -5,7 +5,7 @@ public class SquareMover : MonoBehaviour
     public Camera gameCamera;
     public float speed;
     float xMax;
-    float xMin = 0;
+    float xMin;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
