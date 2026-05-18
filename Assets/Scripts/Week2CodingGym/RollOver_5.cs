@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class RollOver_5 : MonoBehaviour
 {
+    public AnimationCurve curve;
+    public float duration;
+
+
     public float distanceFromMouse; 
     public bool timerIsRunning = false;
     public Camera gameCamera;
@@ -32,6 +36,7 @@ public class RollOver_5 : MonoBehaviour
         if (timerIsRunning == true)
         {
             timer += Time.deltaTime; // Increment the timer by the time elapsed since the last frame
+            transform.localScale = curve.Evaluate(timer / duration) * Vector3.one;
             Debug.Log(timer);
         }
 
