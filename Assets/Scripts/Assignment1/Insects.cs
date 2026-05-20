@@ -1,10 +1,21 @@
 // using this from sprite from https://ponkpixels.itch.io/insect-enemies/download/eyJleHBpcmVzIjoxNzc5MjI3NTAxLCJpZCI6NTYzNjY3fQ%3d%3d%2ePomVoaQcclcHWH%2fBlRN8IEUMDbA%3d
 
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class Insects : MonoBehaviour
 {
     public AnimationCurve curve;
+
+
+    public Camera gameCamera;
+    public float distanceFromMouse;
+    public float minDistance;
+    public float maxDistance;
+    float speed = 0.8f;
+
+
     public float duration;
     float progress = 0f;
     public float timerDuration = 5f; // Duration of the timer in seconds
@@ -21,13 +32,32 @@ public class Insects : MonoBehaviour
 
         //increase local scale based on the animation curve
         
-        //Debug.Log(transform.localScale);
-        Debug.Log(progress);
+        
         if (progress >= timerDuration)
         {
-            Debug.Log("Progress will reset"); 
+            
             progress = 0f; // progress gets reset
         }
         transform.localScale = curve.Evaluate(progress / duration) * Vector3.one;
+
+
+
+        //get mouse position in world coordinates
+        Vector2 currentMousePosition = gameCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 currentPostion = transform.position;
+
+        float distance = Vector2.Distance(currentMousePosition, currentPostion);
+
+        if (distance < distanceFromMouse)
+        {
+            // transform.position = new Vector2(ler
+            Vector2 newPos = transform.position;
+            float timer = 5f;
+          
+            newPos.x = Mathf.Lerp(minDistance, maxDistance, timer);
+            
+            transform.position = newPos;
+            Debug.Log("The mouse is close to the insect");
+        }
     }
 }
