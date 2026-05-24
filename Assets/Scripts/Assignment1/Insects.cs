@@ -14,7 +14,7 @@ public class Insects : MonoBehaviour
     public float minDistance;
     public float maxDistance;
     float speed = 0.8f;
-
+    public bool isRight;
 
     public float duration;
     float progress = 0f;
@@ -45,19 +45,31 @@ public class Insects : MonoBehaviour
         //get mouse position in world coordinates
         Vector2 currentMousePosition = gameCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 currentPostion = transform.position;
+        Vector2 newPos = transform.position;
 
         float distance = Vector2.Distance(currentMousePosition, currentPostion);
 
-        if (distance < distanceFromMouse)
+        if (distance < distanceFromMouse && isRight == false)
         {
-            // transform.position = new Vector2(ler
-            Vector2 newPos = transform.position;
-            float timer = 5f;
-          
-            newPos.x = Mathf.Lerp(minDistance, maxDistance, timer);
-            
+
+            newPos.x = Mathf.Lerp(minDistance, maxDistance, speed);
+            isRight = true;
+            Debug.Log(isRight);
             transform.position = newPos;
-            Debug.Log("The mouse is close to the insect");
+            //Debug.Log("The mouse is close to the insect");
+        }  
+        if (distance < distanceFromMouse && isRight == true)
+        {
+            newPos.x = Mathf.Lerp(maxDistance, minDistance, speed);
+            isRight = false;
+            Debug.Log(isRight);
+            transform.position = newPos;
+            //Debug.Log("The mouse is close to the insect");
         }
+
+          
+        
+        
+
     }
 }
