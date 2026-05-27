@@ -205,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 462778125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.33, y: 2.23, z: 0}
+  m_LocalPosition: {x: -2, y: 2.23, z: 0}
   m_LocalScale: {x: 5.3664, y: 5.3664, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -274,10 +274,36 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  lerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   gameCamera: {fileID: 878193744}
   distanceFromMouse: 0.5
-  minDistance: 0
+  minDistance: -2
   maxDistance: 2
+  flyMove: 0
+  isHover: 0
   isRight: 0
   duration: 5
   timerDuration: 5
@@ -317,8 +343,8 @@ Camera:
   m_GameObject: {fileID: 878193742}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.6697223, g: 0.8113208, b: 0.76091516, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -428,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1051914671}
   - component: {fileID: 1051914670}
+  - component: {fileID: 1051914672}
   m_Layer: 0
   m_Name: Insects_2
   m_TagString: Untagged
@@ -503,12 +530,108 @@ Transform:
   m_GameObject: {fileID: 1051914669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.35, y: -2.95, z: 0}
+  m_LocalPosition: {x: 5, y: -2.95, z: 0}
   m_LocalScale: {x: 5.3664, y: 5.3664, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051914672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051914669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b073903bde4c34da2dfe7612d57e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Insects
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.019901276
+      value: 4.998268
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.20385873
+      value: 3.2309823
+      inSlope: -0.03148049
+      outSlope: -0.03148049
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.42125136
+      value: 4.9991446
+      inSlope: 3.0316253
+      outSlope: 3.0316253
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7546574
+      value: 3.2388759
+      inSlope: -0.9225914
+      outSlope: -0.9225914
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.98820496
+      value: 4.972412
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  lerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gameCamera: {fileID: 878193744}
+  distanceFromMouse: 0.5
+  minDistance: 5
+  maxDistance: -5
+  flyMove: 0
+  isHover: 0
+  isRight: 0
+  duration: 5
+  timerDuration: 5
 --- !u!1 &1732737777
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1732737779}
   - component: {fileID: 1732737778}
+  - component: {fileID: 1732737780}
   m_Layer: 0
   m_Name: Insects_3
   m_TagString: Untagged
@@ -594,12 +718,108 @@ Transform:
   m_GameObject: {fileID: 1732737777}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.56, y: -2.42, z: 0}
+  m_LocalPosition: {x: -4, y: -1.16, z: 0}
   m_LocalScale: {x: 5.3664, y: 5.3664, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1732737780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732737777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b073903bde4c34da2dfe7612d57e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Insects
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.019901276
+      value: 4.998268
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.20385873
+      value: 3.2309823
+      inSlope: -0.03148049
+      outSlope: -0.03148049
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.42125136
+      value: 4.9991446
+      inSlope: 3.0316253
+      outSlope: 3.0316253
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7546574
+      value: 3.2388759
+      inSlope: -0.9225914
+      outSlope: -0.9225914
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.98820496
+      value: 4.972412
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  lerpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gameCamera: {fileID: 878193744}
+  distanceFromMouse: 0.5
+  minDistance: -4
+  maxDistance: 4
+  flyMove: 0
+  isHover: 0
+  isRight: 0
+  duration: 5
+  timerDuration: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

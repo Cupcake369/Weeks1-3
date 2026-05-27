@@ -7,15 +7,17 @@ using UnityEngine.Rendering;
 public class Insects : MonoBehaviour
 {
     public AnimationCurve curve;
+    public AnimationCurve lerpCurve;
+
 
 
     public Camera gameCamera;
     public float distanceFromMouse;
     public float minDistance;
     public float maxDistance;
-    float speed = 0.8f;
+    public float flyMove;
+    public bool isHover;
     public bool isRight;
-
     public float duration;
     float progress = 0f;
     public float timerDuration = 5f; // Duration of the timer in seconds
@@ -48,28 +50,56 @@ public class Insects : MonoBehaviour
         Vector2 newPos = transform.position;
 
         float distance = Vector2.Distance(currentMousePosition, currentPostion);
-
-        if (distance < distanceFromMouse && isRight == false)
+        
+        if (distance < distanceFromMouse)
         {
-
-            newPos.x = Mathf.Lerp(minDistance, maxDistance, speed);
-            isRight = true;
-            Debug.Log(isRight);
-            transform.position = newPos;
-            //Debug.Log("The mouse is close to the insect");
-        }  
-        if (distance < distanceFromMouse && isRight == true)
-        {
-            newPos.x = Mathf.Lerp(maxDistance, minDistance, speed);
-            isRight = false;
-            Debug.Log(isRight);
-            transform.position = newPos;
+            isHover = true;
             //Debug.Log("The mouse is close to the insect");
         }
+        //else
+        //{
+        //    isHover = false;
+        //    //Debug.Log("The mouse is far from the insect");
+        //}
 
-          
+        if (isHover == true)
+        {
+            flyMove += Time.deltaTime;
+            newPos.x = Mathf.Lerp(minDistance, maxDistance, lerpCurve.Evaluate(flyMove));
+            
+            Debug.Log(isRight);
+            transform.position = newPos;
+            
+            //isRight = true;
+
+        }
+
+        if(flyMove >= 1f)
+        {
+            isHover = false;
+            flyMove = 0f;
+            minDistance = maxDistance;
+            maxDistance = -minDistance;
+
+        }
         
-        
+
+        //if (isHover == true && isRight == true)
+        //{
+        //    newPos.x = Mathf.Lerp(minDistance, maxDistance, lerpCurve.Evaluate(speed));
+
+        //    Debug.Log(isRight);
+        //    transform.position = newPos;
+
+        //    isRight = false;
+
+        //    //Debug.Log("The mouse is close to the insect");
+        //}
+
+
+
+
+
 
     }
 }
